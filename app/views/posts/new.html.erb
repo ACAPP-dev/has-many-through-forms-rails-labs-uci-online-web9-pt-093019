@@ -6,7 +6,7 @@
     <p><%= f.label :content %>
     <%= f.text_area :content %></p>
     <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
-    <%= f.fields_for :categories, @post.categories.build do |categories_fields| %>
+    <%= f.fields_for :categories do |categories_fields| %>
         <%= categories_fields.text_field :name, list: "categories_autocomplete" %>
         <datalist id="categories_autocomplete">
         <% Category.all.each do |category| %>
